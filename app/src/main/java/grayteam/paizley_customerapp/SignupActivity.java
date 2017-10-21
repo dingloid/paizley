@@ -4,21 +4,19 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.TextView;
 
-public class LoginActivity extends AppCompatActivity {
-    TextView signUp;
+public class SignupActivity extends AppCompatActivity {
+    TextView login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_login);
-        signUp = (TextView)findViewById(R.id.link_signup);
-        signUp.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_signup);
+        login = (TextView)findViewById(R.id.link_login);
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),SignupActivity.class);
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivityForResult(intent,0);
             }
         });
