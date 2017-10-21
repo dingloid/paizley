@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:paddingTop="56dp"
         android:paddingLeft="24dp"
-        android:paddingRight="24dp">
+        android:paddingRight="24dp"
+        android:weightSum="1">
 
         <ImageView android:src="@drawable/paizleywhite"
             android:layout_width="wrap_content"
@@ -72,11 +73,12 @@
 
         <TextView android:id="@+id/link_login"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginBottom="24dp"
             android:text="Already a member? Login"
             android:gravity="center"
-            android:textSize="16dip"/>
+            android:textSize="16dip"
+            android:layout_weight="0.08" />
 
     </LinearLayout>
 </ScrollView>

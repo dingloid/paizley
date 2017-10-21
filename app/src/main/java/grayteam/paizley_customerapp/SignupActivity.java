@@ -20,5 +20,7 @@ public class SignupActivity extends AppCompatActivity {
                 startActivityForResult(intent,0);
             }
         });
+
     }
+
 }
