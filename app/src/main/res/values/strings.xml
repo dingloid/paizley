@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">Paizley-CustomerApp</string>
+    <string name="app_name">Paizley</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="menu_breakfast">Breakfast</string>
+    <string name="menu_lunch">Lunch</string>
+    <string name="menu_dinner">Dinner</string>
 </resources>
