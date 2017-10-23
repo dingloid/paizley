@@ -102,11 +102,4 @@ public class SignupActivity extends BaseActivity {
         finish();
     }
 
-    private void writeNewUser(String userId, String name, String email) {
-        User user = new User(name, email);
-        database.child("users").child(userId).setValue(user);
-    }
-
-
-
 }

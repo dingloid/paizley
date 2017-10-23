@@ -29,9 +29,6 @@ public class LoginActivity extends BaseActivity {
     private EditText passwordField;
     private Button loginButton;
 
-    private FirebaseAuth auth;
-    private DatabaseReference database;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +55,8 @@ public class LoginActivity extends BaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signIn();
+                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -91,25 +89,5 @@ public class LoginActivity extends BaseActivity {
                     }
                 });
     }
-
-
-    private void onAuthSuccess(FirebaseUser user) {
-        String username = user.getDisplayName();
-        // Write new user
-        writeNewUser(user.getUid(), username, user.getEmail());
-        //Push user name to next activity
-        Intent intent = new Intent(this, MenuActivity.class);
-        intent.putExtra("username", username);
-        // Go to MainActivity
-        startActivity(intent);
-        finish();
-    }
-
-    private void writeNewUser(String userId, String name, String email) {
-        User user = new User(name, email);
-        database.child("users").child(userId).setValue(user);
-    }
-
-
 
 }

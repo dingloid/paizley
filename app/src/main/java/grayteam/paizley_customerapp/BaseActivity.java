@@ -16,6 +16,8 @@ import grayteam.paizley_customerapp.models.User;
 public class BaseActivity extends AppCompatActivity{
     private ProgressDialog mProgressDialog;
 
+    public FirebaseAuth auth;
+    public DatabaseReference database;
 
 
     public void showProgressDialog() {
@@ -52,6 +54,24 @@ public class BaseActivity extends AppCompatActivity{
         }
 
         return result;
+    }
+
+    public void onAuthSuccess(FirebaseUser user) {
+        String username = user.getDisplayName();
+        // Write new user
+        writeNewUser(user.getUid(), username, user.getEmail());
+        //Push user name to next activity
+        Intent intent = new Intent(this, MenuActivity.class);
+        intent.putExtra("username", username);
+        // Go to MainActivity
+        startActivity(intent);
+        finish();
+    }
+
+
+    public void writeNewUser(String userId, String name, String email) {
+        User user = new User(name, email);
+        database.child("users").child(userId).setValue(user);
     }
 
 
